@@ -1,0 +1,18 @@
+Enabled,MobileProvider,EmailSuffix
+x,AT&T,txt.att.net
+x,Boost Mobile,sms.myboostmobile.com
+x,Consumer Cellular,mailmymobile.net
+x,Cricket,sms.cricketwireless.net
+x,C-Spire,cspire1.com
+x,Google Fi,msg.fi.google.com
+x,Metro PCS,mymetropcs.com
+x,Page Plus,vtext.com
+x,Republic Wireless,text.republicwireless.com
+x,Sprint,messaging.sprintpcs.com
+x,Ting,message.ting.com
+x,T-Mobile,tmomail.net
+x,Tracfone,mmst5.tracfone.com
+x,U.S. Cellular,email.uscc.net
+x,Verizon,vtext.com
+x,Virgin Mobile,vmobl.com
+x,Xfinity Mobile,vtext.com

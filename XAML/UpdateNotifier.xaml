@@ -1,0 +1,57 @@
+<ma:MetroWindow x:Class="PoSHPF.UpdateNotifier"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PoSHPF"
+        mc:Ignorable="d"
+        xmlns:ma="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:cez="urn:controlzex"
+        xmlns:beh="http://schemas.microsoft.com/xaml/behaviors"
+        Title="Update Notification" SizeToContent="Height" Width="500"
+        ResizeMode="NoResize"
+	GlowBrush="{DynamicResource AccentColorBrush}"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Light.Cobalt.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Image Grid.ColumnSpan="4" Source="{StaticResource LogoPNG}" />
+        <TextBlock x:Name="NotificationMessage" Grid.ColumnSpan="4" Margin="10" Grid.Row="1" TextWrapping="Wrap" HorizontalAlignment="Center" TextAlignment="Center" FontFamily="Segoe UI" FontSize="14"></TextBlock>
+        <Border Grid.Row="2" Grid.ColumnSpan="4" Height="1" Margin="20,5" Background="{DynamicResource AccentColorBrush}" />
+        <Label x:Name="MobileNumberLabel" Grid.Row="3" Grid.Column="1" FontFamily="Segoe UI" FontSize="14" VerticalAlignment="Center">Mobile Number:</Label>
+        <TextBox x:Name="MobileNumberInput" Grid.Row="3" Grid.Column="2" FontFamily="Segoe UI" FontSize="14" VerticalAlignment="Center" Width="200">
+            <beh:Interaction.Behaviors>
+                <cez:TextBoxInputMaskBehavior InputMask="(999)-000-0000" PromptChar="_" />
+            </beh:Interaction.Behaviors>
+        </TextBox>
+        <Label x:Name="MobileCarrierLabel" Grid.Row="4" Grid.Column="1" FontFamily="Segoe UI" FontSize="14" VerticalAlignment="Center">Mobile Carrier:</Label>
+        <ComboBox x:Name="MobileCarrierSelect" Grid.Row="4" Grid.Column="2" FontFamily="Segoe UI" FontSize="14" VerticalAlignment="Center" Width="200" />
+        <Label x:Name="CarrierRatesLabel" Grid.Row="5" Grid.ColumnSpan="4" FontFamily="Segoe UI" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource AccentColorBrush}">*** STANDARD CARRIER MESSAGE AND DATA RATES MAY APPLY ***</Label>
+        <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+            <Button x:Name="NotifyMe" IsDefault="True" Content="Notify Me!" Margin="5" Height="50" FontSize="15" />
+            <Button x:Name="CancelMe" Content="No Thanks!" Margin="5" Height="50" FontSize="15" />
+        </StackPanel>
+    </Grid>
+</ma:MetroWindow>
