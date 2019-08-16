@@ -119,12 +119,12 @@ if($settings["Service"] -eq "Mail")
     Write-ZNLogs -Description "Mail is being sent from: $($settings["MailFrom"])" -Source "Initializaiton" -Level 1 -FileLogging:$Logging -LogFilePath:$LogFile -Debugging:$Debug -Verbose:$Verbose
 
     #Review the Username and password settings
-    if(($null -ne $settings["MailUsername"] -or $settings["MailUsername"] -ne "") -ne ($null -ne $settings["MailPassword"] -or $settings["MailPassword"] -ne ""))
+    if(($null -ne $settings["MailUsername"] -and $settings["MailUsername"] -ne "") -ne ($null -ne $settings["MailPassword"] -and $settings["MailPassword"] -ne ""))
     {
         Write-ZNLogs -Description "You must set both the username and password for email if you choose to use them." -Source "Initializaiton" -Level 3 -FileLogging:$Logging -LogFilePath:$LogFile -Debugging:$Debug -Verbose:$Verbose
         Exit
     }
-    if(($null -ne $settings["MailUsername"] -or $settings["MailUsername"] -ne "") -and ($null -ne $settings["MailPassword"] -or $settings["MailPassword"] -ne ""))
+    if(($null -ne $settings["MailUsername"] -and $settings["MailUsername"] -ne "") -and ($null -ne $settings["MailPassword"] -and $settings["MailPassword"] -ne ""))
     {
         Write-ZNLogs -Description "Mail username and password detected. This is an insecure method and should only be used for testing purposes. It is recommended that you configure an alias on your mail server which has permissions to be sent from any user." -Source "Initializaiton" -Level 2 -FileLogging:$Logging -LogFilePath:$LogFile -Debugging:$Debug -Verbose:$Verbose
         $password = ConvertTo-SecureString $settings["MailPassword"] -AsPlainText -Force
