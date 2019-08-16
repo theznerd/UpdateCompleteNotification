@@ -4,8 +4,9 @@ A PowerShell script to send notifications to mobile devices.
 
 .NOTES
 Written By: Nathan Ziehnert (@theznerd)
-Version: 1.0
+Version: 1.1
 ChangeLog:
+ - 1.1: Bug fix for email - uploaded wrong version.
  - 1.0: Initial Release
 
 .LINK
@@ -138,10 +139,10 @@ if($settings["Service"] -eq "Mail")
         SmtpServer = $settings["MailServer"]
         Port = $settings["MailPort"]
         Body = $settings["Message"]
-        UseSsl = $settings["MailSSL"]
-        Credential = if($null -ne $MailCredential){$MailCredential}
+        UseSsl = $settings["MailSSL"]    
     }
-
+    if($null -ne $MailCredential){$mm.Add('Credential',$MailCredential)}
+    
     #Send the mail message
     Write-ZNLogs -Description "Sending mail message." -Source "Execution" -Level 1 -FileLogging:$Logging -LogFilePath:$LogFile -Debugging:$Debug -Verbose:$Verbose
     try
