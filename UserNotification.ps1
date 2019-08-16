@@ -392,6 +392,10 @@ $formUpdateNotifierControlMobileCarrierSelect.DisplayMemberPath = "Name"
 # Load the TSEnvironment
 try{
     $ts = New-Object -COMObject Microsoft.SMS.TSEnvironment
+    
+    # Kill TS Progress UI
+    $prog = New-Object -ComObject Microsoft.SMS.TSProgressUI
+    $prog.CloseProgressDialog()
 }
 catch{
     Write-ZNLogs -Description "Error loading TS Environment. Assuming debug mode outside of Task Sequence." -Source "Initializaiton" -Level 2 -FileLogging:$Logging -LogFilePath:$LogFile -Debugging:$Debug -Verbose:$Verbose
